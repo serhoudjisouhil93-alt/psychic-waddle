@@ -106,7 +106,6 @@ class ChampPetrolier:
 
 st.set_page_config(
     page_title="Gestion de Champ Pétrolier – Hassi Messaoud",
-    page_icon="🛢️",
     layout="wide",
 )
 
@@ -117,7 +116,7 @@ st.set_page_config(
 st.markdown("""
 <div style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);
             padding:2rem 2.5rem;border-radius:12px;margin-bottom:1.5rem">
-  <h1 style="color:#e8b84b;margin:0;font-size:2rem">🛢️ Gestion de Champ Pétrolier</h1>
+  <h1 style="color:#e8b84b;margin:0;font-size:2rem"> Gestion de Champ Pétrolier</h1>
   <p style="color:#aac4de;margin:0.4rem 0 0">
       Formation Python – Projet Jour 1 &nbsp;|&nbsp; Dr. Kadi &nbsp;|&nbsp; Hassi Messaoud, Algérie
   </p>
@@ -160,7 +159,7 @@ with st.sidebar:
         step=1_000_000,
         format="%d",
     )
-    if st.button("✅ Mettre à jour le champ"):
+    if st.button(" Mettre à jour le champ"):
         champ.nom = new_nom_champ
         champ.definir_reserves(new_reserves)
         st.success("Champ mis à jour !")
@@ -208,10 +207,10 @@ stats = champ.statistiques_avancees()
 top_puits = champ.puits_le_plus_productif()
 
 c1, c2, c3, c4 = st.columns(4)
-c1.metric("🛢️ Production totale", f"{prod_totale:,.0f} bbl/j")
-c2.metric("📦 Production cumulée", f"{prod_cumulee:,.0f} bbl")
-c3.metric("⚗️ Taux de récupération", f"{taux:.4f}%")
-c4.metric("⏳ Durée de vie estimée", f"{duree_vie:,.0f} jours")
+c1.metric(" Production totale", f"{prod_totale:,.0f} bbl/j")
+c2.metric(" Production cumulée", f"{prod_cumulee:,.0f} bbl")
+c3.metric(" Taux de récupération", f"{taux:.4f}%")
+c4.metric(" Durée de vie estimée", f"{duree_vie:,.0f} jours")
 
 st.divider()
 
@@ -220,10 +219,10 @@ st.divider()
 # ─────────────────────────────────────────────
 
 tab1, tab2, tab3, tab4 = st.tabs([
-    "📋 Rapport du champ",
-    "📊 Visualisations",
-    "🔬 Statistiques avancées",
-    "🖥️ Console (sortie texte)",
+    " Rapport du champ",
+    " Visualisations",
+    " Statistiques avancées",
+    " Console (sortie texte)",
 ])
 
 # ── TAB 1 : Rapport ──────────────────────────
@@ -245,7 +244,7 @@ with tab1:
 """)
     with col_top:
         if top_puits:
-            st.markdown("**🏆 Puits le plus productif**")
+            st.markdown("** Puits le plus productif**")
             st.info(f"**{top_puits.nom}**\n\n{top_puits.production_moyenne():.0f} bbl/j (moy.)")
 
     st.markdown("---")
@@ -307,7 +306,7 @@ with tab2:
             st.plotly_chart(fig_pie, use_container_width=True)
 
         # Line chart – historique de production par puits
-        st.subheader("📈 Historique de production journalière")
+        st.subheader(" Historique de production journalière")
         fig_line = go.Figure()
         colors = px.colors.qualitative.Bold
         for i, p in enumerate(champ.puits):
@@ -334,10 +333,10 @@ with tab3:
         stats = champ.statistiques_avancees()
         if stats:
             s1, s2, s3, s4 = st.columns(4)
-            s1.metric("📉 Production min", f"{stats['min']:,.0f} bbl/j")
-            s2.metric("📈 Production max", f"{stats['max']:,.0f} bbl/j")
-            s3.metric("📊 Moyenne", f"{stats['moyenne']:,.1f} bbl/j")
-            s4.metric("📐 Écart-type", f"{stats['ecart_type']:,.1f} bbl/j")
+            s1.metric(" Production min", f"{stats['min']:,.0f} bbl/j")
+            s2.metric(" Production max", f"{stats['max']:,.0f} bbl/j")
+            s3.metric(" Moyenne", f"{stats['moyenne']:,.1f} bbl/j")
+            s4.metric(" Écart-type", f"{stats['ecart_type']:,.1f} bbl/j")
 
         st.divider()
         st.subheader("Profondeur vs Production moyenne")
